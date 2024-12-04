@@ -139,7 +139,7 @@ function *(C::CauchyOperator,domain::OscRational)
     end
 end
 
-function Base.sum(f::BasisExpansion{OscRational}) #name change
+function Base.sum(f::BasisExpansion{T}) where T <: OscRational
     α = convert(Float64,f.basis.α)
     Laguerre = Lag(N₋(length(f.c)),2*abs(α))
     j_vals = -N₋(length(f.c)):N₊(length(f.c)) #determine j's
